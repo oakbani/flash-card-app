@@ -1,7 +1,9 @@
-const router = require('express')
-const TestController = require('../controllers/testController')
+var express = require('express')
+var router = express.Router()
 
+const testController = require('../controllers/testController')
 
-const router = new Router()
+router.get('/helloWorld', testController.helloFunc);
+router.post('/addRecord', testController.addRecord);
 
-router.get('/admin', TestController.helloWorld)
+module.exports = router;
