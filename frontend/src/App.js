@@ -53,7 +53,7 @@ function App() {
   const [helloValue, setHelloValue] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/helloWorld")
+    fetch("http://localhost:8000/api/helloWorld")
       .then((res) => res.json())
       .then(
         (result) => {
