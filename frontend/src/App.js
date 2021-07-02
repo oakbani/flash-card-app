@@ -1,22 +1,18 @@
-
-import AppBar from '@material-ui/core/AppBar';
-import Container from '@material-ui/core/Container';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Link from '@material-ui/core/Link';
-import { makeStyles } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import React, { useEffect, useState } from 'react';
+import AppBar from "@material-ui/core/AppBar";
+import Container from "@material-ui/core/Container";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Link from "@material-ui/core/Link";
+import { makeStyles } from "@material-ui/core/styles";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import React, { useEffect, useState } from "react";
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
+      {"Copyright © "}
+      <Link color="inherit">Your Website</Link> {new Date().getFullYear()}
+      {"."}
     </Typography>
   );
 }
@@ -37,12 +33,12 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(8),
   },
   card: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
   },
   cardMedia: {
-    paddingTop: '56.25%', // 16:9
+    paddingTop: "56.25%", // 16:9
   },
   cardContent: {
     flexGrow: 1,
@@ -54,11 +50,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function App() {
-  const [helloValue, setHelloValue] = useState('');
+  const [helloValue, setHelloValue] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/helloWorld")
-      .then(res => res.json())
+    fetch("http://localhost:3001/api/helloWorld")
+      .then((res) => res.json())
       .then(
         (result) => {
           setHelloValue(result.name);
@@ -66,7 +62,7 @@ function App() {
         (error) => {
           console.log(error);
         }
-      )
+      );
   }, []);
 
   const classes = useStyles();
@@ -77,14 +73,20 @@ function App() {
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
             Gre Magoosh Folio3
-        </Typography>
+          </Typography>
         </Toolbar>
       </AppBar>
       <main>
         {/* Hero unit */}
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
-            <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+            <Typography
+              component="h1"
+              variant="h2"
+              align="center"
+              color="textPrimary"
+              gutterBottom
+            >
               {helloValue}
             </Typography>
           </Container>
@@ -92,9 +94,14 @@ function App() {
       </main>
       {/* Footer */}
       <footer className={classes.footer}>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+        <Typography
+          variant="subtitle1"
+          align="center"
+          color="textSecondary"
+          component="p"
+        >
           Gre Magoosh Folio3!
-      </Typography>
+        </Typography>
         <Copyright />
       </footer>
       {/* End footer */}
