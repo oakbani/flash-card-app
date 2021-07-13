@@ -1,0 +1,5 @@
+{
+  "PORT": 8000,
+  "MONGO_CONNECTION": "mongodb+srv://mehran:12345@cluster0.kq2s5.mongodb.net/test",
+  "NODE_ENV": "dev"
+}
