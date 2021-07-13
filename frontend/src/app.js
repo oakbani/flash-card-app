@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import React, { useEffect, useState } from "react";
+import { API_URL } from "./config/environment";
 
 function Copyright() {
   return (
@@ -50,22 +51,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function App() {
-  const [helloValue, setHelloValue] = useState("");
+  const classes = useStyles();
+  const [value, setValue] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/helloWorld")
+    fetch(`${API_URL}/helloWorld`)
       .then((res) => res.json())
       .then(
         (result) => {
-          setHelloValue(result.name);
+          setValue(result.name);
         },
         (error) => {
           console.log(error);
         }
       );
   }, []);
-
-  const classes = useStyles();
   return (
     <React.Fragment>
       <CssBaseline />
@@ -87,7 +87,7 @@ function App() {
               color="textPrimary"
               gutterBottom
             >
-              {helloValue}
+              {value}
             </Typography>
           </Container>
         </div>
